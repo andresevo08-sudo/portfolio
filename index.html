@@ -387,8 +387,11 @@ function getMarketStatus() {
 // =====================================================================
 // FINNHUB FETCH
 // =====================================================================
+// Embedded fallback key — recipient doesn't need their own.
+// localStorage override (set via Settings ⚙) still wins if present.
+const EMBEDDED_API_KEY = 'd7vqcu1r01qj3ct818ogd7vqcu1r01qj3ct818p0';
 function getApiKey() {
-  return localStorage.getItem('finnhub_key') || '';
+  return localStorage.getItem('finnhub_key') || EMBEDDED_API_KEY;
 }
 function setApiKey(k) {
   localStorage.setItem('finnhub_key', k);
